@@ -1,24 +1,31 @@
 # Qlabio::Ruby
 
-TODO: Write a gem description
-
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'qlabio-ruby'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
+Install it yourself with:
 
     $ gem install qlabio-ruby
 
 ## Usage
 
-TODO: Write usage instructions here
+Use it in a script:
+
+```ruby
+require 'qlabio'
+
+token = "my-secret-api-token"
+
+qlab = QLabIo.connect(token)
+
+machine = qlab.machines.first
+
+# run a command on a machine, which will be sent to the frontmost QLab workspace
+machine.command '/go'
+
+# or send a command directly to a workspace
+workspace = machine.workspaces.first
+workspace.command '/cue/7.1/start'
+```
 
 ## Contributing
 
