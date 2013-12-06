@@ -1,10 +1,14 @@
-# QLabIo
+# qlab.io, the gem
 
 ## Installation
 
-Install it yourself with:
+Install it yourself like this:
 
-    $ gem install qlabio-ruby
+    $ git clone https://github.com/abachman/qlabio-ruby.git
+    $ cd qlabio-ruby
+    $ rake install
+
+For now it only works with Ruby 1.9.3 and up.
 
 ## Usage
 
