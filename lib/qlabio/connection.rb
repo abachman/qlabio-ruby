@@ -17,7 +17,7 @@ module QLabIo
     end
 
     def machines
-      self.class.get("/api/machines", headers: @default_headers).parsed_response.map do |machine_json|
+      self.class.get("/api/machines", :headers => @default_headers).parsed_response.map do |machine_json|
         # materialize machines and workspaces
         machine = Machine.new(self, machine_json)
         machine.workspaces = machine.workspaces.map {|ws| Workspace.new(machine, ws)}
