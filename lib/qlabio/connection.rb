@@ -26,10 +26,13 @@ module QLabIo
     end
 
     def command machine_id, workspace_id, command
-      self.class.post("/api/machines/#{ machine_id }/command", body: {
-        workspace_id: workspace_id,
-        command: command
-      }, headers: @default_headers).parsed_response
+      body = {command: command}
+      body[:workspace_id] = workspace_id if workspace_id
+
+      self.class.post("/api/machines/#{ machine_id }/command",
+                      body: body,
+                      headers: @default_headers
+      ).parsed_response
     end
   end
 end
