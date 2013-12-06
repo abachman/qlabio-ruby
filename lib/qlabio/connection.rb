@@ -1,4 +1,5 @@
 require 'httparty'
+require 'ostruct'
 
 module QLabIo
   class Connection
@@ -16,7 +17,12 @@ module QLabIo
     end
 
     def machines
-      self.class.get("/api/machines", headers: @default_headers).parsed_response
+      self.class.get("/api/machines", headers: @default_headers).parsed_response.map do |machine_json|
+        # materialize machines and workspaces
+        machine = Machine.new(self, machine_json)
+        machine.workspaces = machine.workspaces.map {|ws| Workspace.new(machine, ws)}
+        machine
+      end
     end
 
     def command machine_id, workspace_id, command
