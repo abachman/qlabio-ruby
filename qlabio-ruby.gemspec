@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'qlabio/ruby/version'
+require 'qlabio/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "qlabio-ruby"
-  spec.version       = Qlabio::Ruby::VERSION
+  spec.version       = QLabIo::VERSION
   spec.authors       = ["Adam Bachman"]
   spec.email         = ["adam.bachman@gmail.com"]
   spec.description   = %q{A qlab.io helper.}

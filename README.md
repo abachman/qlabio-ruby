@@ -1,4 +1,4 @@
-# Qlabio::Ruby
+# QLabIo
 
 ## Installation
 
