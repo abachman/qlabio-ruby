@@ -1,4 +1,5 @@
 module QLabIo
+  # pull in fields from QLab.io
   class Machine < OpenStruct
     def initialize connection, hash
       super hash

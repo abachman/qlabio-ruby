@@ -5,8 +5,8 @@ require 'qlabio/workspace'
 
 module QLabIo
   class << self
-    def connect token
-      Connection.new(token)
+    def connect username, password
+      Connection.new(username, password)
     end
   end
 end
