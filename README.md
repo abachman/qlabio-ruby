@@ -17,18 +17,18 @@ Use it in a script:
 ```ruby
 require 'qlabio'
 
-token = "my-secret-api-token"
+username = ENV['QLABIO_USERNAME']
+password = ENV['QLABIO_PASSWORD']
 
-qlab = QLabIo.connect(token)
+qlab = QLabIo.connect(username, password)
+
+puts "Found machines: #{ qlab.machines.map(&:name) }"
 
 machine = qlab.machines.first
 
-# run a command on a machine, which will be sent to the frontmost QLab workspace
-machine.command '/go'
-
-# or send a command directly to a workspace
-workspace = machine.workspaces.first
-workspace.command '/cue/7.1/start'
+machine.command('/stop')
+machine.command('/select/1')
+machine.command('/go')
 ```
 
 ## Contributing
